@@ -21,5 +21,5 @@ document.getElementById('registrationForm').addEventListener('submit', function(
     console.log(`Password: ${confirmpassword}`);
 
     // Redirect to the next page (e.g., a welcome page)
-    window.location.href = '../signin/signinpage.html';
+    window.location.href = 'signinpage.html';
 });

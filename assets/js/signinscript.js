@@ -20,5 +20,5 @@ document.getElementById('signInForm').addEventListener('submit', function(event)
     console.log(`Password: ${password}`);
 
     // Redirect to the next page (e.g., a dashboard page)
-    window.location.href = '../next.html';
+    window.location.href = 'next.html';
 });
