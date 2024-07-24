@@ -15,11 +15,27 @@ document.getElementById('registrationForm').addEventListener('submit', function(
     }
     // Here you can add code to send the form data to a server or handle it as needed
 
-    console.log(`Username: ${username}`);
-    console.log(`Email: ${email}`);
-    console.log(`Password: ${password}`);
-    console.log(`Password: ${confirmpassword}`);
+    //console.log(`Username: ${username}`);
+    //console.log(`Email: ${email}`);
+    //console.log(`Password: ${password}`);
+    //console.log(`Password: ${confirmpassword}`);
+    try {
+        const response = await fetch('http://localhost:3000/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username, email, password, confirmPassword })
+        });
 
+        if (!response.ok) {
+            throw new Error(await response.text());
+        }
+
+        window.location.href = 'welcome.html';
+    } catch (err) {
+        errorElement.textContent = err.message;
+    }
     // Redirect to the next page (e.g., a welcome page)
-    window.location.href = 'signinpage.html';
+    //window.location.href = 'signinpage.html';
 });
